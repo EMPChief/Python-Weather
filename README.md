@@ -45,7 +45,8 @@ To set up the Python environment for this project, follow these steps:
 
     ```bash
     pip install -r requirements.txt
+    ```
+    ```bash
     pip install --upgrade pip
     ```
-
 5. Run the project: Once the dependencies are installed, you can run the Python-Weather project using the appropriate command. Refer to the project's documentation or source code for instructions on how to run it.
