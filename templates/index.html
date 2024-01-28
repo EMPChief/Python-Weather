@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EMP WeatherAPI</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+    </head>
+<body>
+<nav>
+    <div class="navcontainer">
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        <div class="insidecontainer">
+            <h1>Welcome to Weather Data API</h1>
+            <p>This side is for learning about RestAPI and such.</p>
+            <p>URL Format: http://127.0.0.1:3000/api/v1/station/date</p>
+            <img class="cat" src="{{ url_for('static', filename='image/cat.png') }}">
+        </div>
+    </div>
+</main>
+</body>
+</html>
