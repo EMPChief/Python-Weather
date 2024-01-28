@@ -23,7 +23,7 @@ class WeatherAPP:
         def index():
             return render_template('index.html')
         
-        @self.app.route("/dictionary/<word>")
+        @self.app.route("/api/dic/<word>")
         def get_dictionary(word):
             result = {
                 'error': 'Word not found in database!'
@@ -34,7 +34,7 @@ class WeatherAPP:
                     break
             return jsonify(result)
 
-        @self.app.route("/weather/<station>/<date>")
+        @self.app.route("/api/weather/<station>/<date>")
         def get_weather(station, date):
             result = {
                 "error":"Data not found!"
