@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>EMP WeatherAPI</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EMP WeatherAPI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
+</head>
 <body>
 <nav>
     <div class="navcontainer">
@@ -20,9 +20,16 @@
         <div class="insidecontainer">
             <h1>Welcome to Weather Data API</h1>
             <p>This side is for learning about RestAPI and such.</p>
-            <p>URL Format: http://127.0.0.1:3000/api/(station)/(date)</p>
-            <p>URL Format: http://127.0.0.1:3000/api/dic/(word)</p>
-            <img class="cat" src="{{ url_for('static', filename='image/cat.png') }}">
+            <p>URL Format: http://localhost:3000/api/(station)/(date)</p>
+            <p>URL Format: http://localhost:3000/api/dic/(word)</p>
+            <a href="http://localhost:3000/api/weather/10/1970-01-28"><p class="anchor">Example: http://localhost:3000/api/weather/10/1970-01-28</p></a>
+            <a href="http://localhost:3000/api/dic/monster"> <p class="anchor">Example: http://localhost:3000/api/dic/monster</p></a>
+            <div class="picture-container">
+                <img class="cat" src="{{ url_for('static', filename='image/glowing-spaceship-orbits-planet-starry-galaxy-generated-by-ai_188544-9655.png') }}" alt="Cat Image">
+            </div>
+            <div class="stations-container">
+                <p>{{data|safe}}</p>
+            </div>
         </div>
     </div>
 </main>

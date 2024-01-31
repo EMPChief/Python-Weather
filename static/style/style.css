@@ -36,7 +36,6 @@ a {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
 
 .insidecontainer {
@@ -45,13 +44,32 @@ a {
     background-color: lightcyan;
     align-items: center;
     justify-content: center;
-    height: auto;
     padding: 20px;
+    flex: 1;
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+.insidecontainer a {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+}
+
+.insidecontainer a:hover {
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+.picture-container {
+    margin-bottom: 20px;
 }
 
 .cat {
-    width: 300px;
-    height: 300px;
+    width: 600px;
+    height: 450px;
 }
 
 .insidecontainer > h1 {
@@ -66,4 +84,29 @@ a {
     font-size: 20px;
     color: deepskyblue;
     font-family: 'Times New Roman', Times, serif;
+}
+
+.stations-container {
+    max-width: 80%;
+    text-align: left;
+    margin: 20px auto;
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: auto;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    word-wrap: break-word;
+}
+
+td {
+    width: 25%;
+    vertical-align: top;
 }
