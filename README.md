@@ -4,10 +4,10 @@
 
 | Source Name            | Source Link                          |
 |------------------------|--------------------------------------|
-| ECAD                   | [ECAD](https://www.ecad.eu/){:target="_blank"}         |
-| ECAD Daily Data        | [Daily Data](https://www.ecad.eu/dailydata/){:target="_blank"} |
-| ECAD Daily Data Index  | [Daily Data Index](https://www.ecad.eu/dailydata/index.php){:target="_blank"} |
-| openweathermap         | [Open Weather Map](https://openweathermap.org/){:target="_blank"} |
+| ECAD                   | [ECAD](https://www.ecad.eu/)         |
+| ECAD Daily Data        | [Daily Data](https://www.ecad.eu/dailydata/) |
+| ECAD Daily Data Index  | [Daily Data Index](https://www.ecad.eu/dailydata/index.php) |
+| openweathermap         | [Open Weather Map](https://openweathermap.org/) |
 
 ## License
 
