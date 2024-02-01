@@ -58,6 +58,29 @@ class WeatherAPP:
                 "temperature_celsius": temperature_celsius,
                 "temperature_fahrenheit": temperature_fahrenheit,
             }
+        @self.app.route("/api/weather/<station>")
+        def get_all_weather_data(station):
+            filename = "weather_historic_data/TG_STAID" + str(station).zfill(6) + ".txt"
+            dataframe = pd.read_csv(
+                filename,
+                skiprows=20,
+                parse_dates=['    DATE'],
+            )
+            result = dataframe.to_dict(orient='records')
+            return result
+        
+        @self.app.route("/api/years/weather/<station>/<year>")
+        def annually_weather_data(station, year):
+            filename = "weather_historic_data/TG_STAID" + str(station).zfill(6) + ".txt"
+            dataframe = pd.read_csv(
+                filename,
+                skiprows=20,
+                parse_dates=['    DATE'],
+            )
+            dataframe['year'] = dataframe['    DATE'].dt.year
+            filtered_data = dataframe[dataframe['year'] == int(year)].to_dict(orient='records')
+            
+            return jsonify(filtered_data)
 
 if __name__ == '__main__':
     weather_app = WeatherAPP()

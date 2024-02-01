@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EMP WeatherAPI</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style/style.css') }}">
-</head>
+</head>+
 <body>
 <nav>
     <div class="navcontainer">
@@ -19,11 +19,15 @@
     <div class="container">
         <div class="insidecontainer">
             <h1>Welcome to Weather Data API</h1>
-            <p>This side is for learning about RestAPI and such.</p>
+            <p>This site is for learning about REST API and such.</p>
             <p>URL Format: http://localhost:3000/api/(station)/(date)</p>
+            <p>URL Format: http://localhost:3000/api/(station)</p>
             <p>URL Format: http://localhost:3000/api/dic/(word)</p>
-            <a href="http://localhost:3000/api/weather/10/1970-01-28"><p class="anchor">Example: http://localhost:3000/api/weather/10/1970-01-28</p></a>
-            <a href="http://localhost:3000/api/dic/monster"> <p class="anchor">Example: http://localhost:3000/api/dic/monster</p></a>
+            <p>URL Format: http://localhost:3000/api/years/weather/(station)/(years)</p>
+            <a href="http://localhost:3000/api/weather/77/1970-01-28"><p class="anchor">Example to check a specific day temperature</p></a>
+            <a href="http://localhost:3000/api/dic/monster"> <p class="anchor">Example to check a word (currently not working)</p></a>
+            <a href="http://localhost:3000/api/weather/32"><p class="anchor">Example for checking all the data for a station</p></a>
+            <a href="http://localhost:3000/api/years/weather/21/1980"><p class="anchor">Example for checking one year temprature</p></a>
             <div class="picture-container">
                 <img class="cat" src="{{ url_for('static', filename='image/glowing-spaceship-orbits-planet-starry-galaxy-generated-by-ai_188544-9655.png') }}" alt="Cat Image">
             </div>

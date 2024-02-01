@@ -17,7 +17,6 @@ venv
 .venv
 venv/
 .venv/
-weather_historic_data
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
