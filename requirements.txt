@@ -6,3 +6,4 @@ Pyarrow
 matplotlib
 streamlit
 plotly
+python-dotenv
