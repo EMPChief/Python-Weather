@@ -19,11 +19,13 @@ forecast_days = st.slider("How many days in advance do you want to see the weath
 option = st.selectbox("Select data to view",
                       ("Temperature", "Humidity", "Wind Speed", "Sky"))
 
+
 def get_weather_data(days):
     dates = ["2022-10-25", "2022-11-25", "2022-12-25"]
     temperatures = [10, 11, 15]
     temperatures = [days * temp for temp in temperatures]
     return dates, temperatures
+
 
 dates, data_values = get_weather_data(forecast_days)
 
