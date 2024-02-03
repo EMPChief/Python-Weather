@@ -30,7 +30,7 @@ st.markdown(
 
 if option in ['Temperature', 'Humidity', 'Pressure', 'Wind']:
     figure = px.line(x=dates, y=data_values, labels={
-                    "x": "Date", "y": option}, height=600, width=1000)
+                    "x": "Date", "y": option}, height=400, width=600)
     st.plotly_chart(figure)
 
 elif option == 'Sky':
