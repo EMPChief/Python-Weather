@@ -13,26 +13,23 @@ st.image(logo_path, width=100, output_format="PNG")
 st.markdown("<h1 style='text-align: center; color: #1f4e79;'>Weather Forecast</h1>",
             unsafe_allow_html=True)
 
-"""WeatherApp class to get weather data and display in Streamlit
-
-Allows user to enter city name, select number of forecast days, 
-and select data type to display. Retrieves data from API and displays
-as line chart or sky condition images depending on data type.
-
-Attributes:
-    city_name: Name of city to get weather for 
-    forecast_days: Number of forecast days 
-    option: Data type to display (temperature, humidity etc.)
-    analyzer: WeatherAnalyzer object to retrieve weather data
-
-Methods:
-    run: Main method to get weather data and display in Streamlit
-    display_header: Display header with city name and forecast days
-    display_line_chart: Show line chart for numeric weather data 
-    display_sky_images: Show sky condition images  
-"""
-
-
+# WeatherApp class to get weather data and display in Streamlit
+#
+# Allows user to enter city name, select number of forecast days,
+# and select data type to display. Retrieves data from API and displays
+# as line chart or sky condition images depending on data type.
+#
+# Attributes:
+#     city_name: Name of city to get weather for
+#     forecast_days: Number of forecast days
+#     option: Data type to display (temperature, humidity etc.)
+#     analyzer: WeatherAnalyzer object to retrieve weather data
+#
+# Methods:
+#     run: Main method to get weather data and display in Streamlit
+#     display_header: Display header with city name and forecast days
+#     display_line_chart: Show line chart for numeric weather data
+#     display_sky_images: Show sky condition images
 class WeatherApp:
     def __init__(self):
         self.city_name = st.text_input("Enter a city name:", "Bergen")
