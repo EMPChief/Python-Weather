@@ -49,10 +49,16 @@ class WeatherAnalyzer:
         return [entry["dt_txt"] for entry in data], [entry["main"]["humidity"] for entry in data]
 
     def filter_sky(self, data):
-        return [entry["dt_txt"] for entry in data], [entry["weather"][0]['main'] for entry in data]
+        sky_conditions = [entry["weather"][0]['main'] for entry in data]
+        return [entry["dt_txt"] for entry in data], sky_conditions
 
     def filter_wind(self, data):
         return [entry["dt_txt"] for entry in data], [entry["wind"]["speed"] for entry in data]
+
+    def get_image_path(self, sky_condition):
+        image_mapping = {'Clear': 'weather/clear.png', 'Clouds': 'weather/cloud.png',
+                         'Rain': 'weather/rain.png', 'Snow': 'weather/snow.png'}
+        return image_mapping.get(sky_condition, 'weather/default.png')
 
 
 if __name__ == "__main__":

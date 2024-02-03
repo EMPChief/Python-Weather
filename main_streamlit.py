@@ -13,7 +13,7 @@ st.image(logo_path, width=100, output_format="PNG")
 st.markdown("<h1 style='text-align: center; color: #1f4e79;'>Weather Forecast</h1>",
             unsafe_allow_html=True)
 
-city_name = st.text_input("Enter a city name:", "Lurøy, NO")
+city_name = st.text_input("Enter a city name:", "Lurøy")
 forecast_days = st.slider("How many days in advance do you want to see the weather forecast?",
                           min_value=1, max_value=5,
                           help="Select the number of forecasted days.")
@@ -28,6 +28,15 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-figure = px.line(x=dates, y=data_values, labels={
-                 "x": "Date", "y": option}, height=600, width=1000)
-st.plotly_chart(figure)
+if option in ['Temperature', 'Humidity', 'Pressure', 'Wind']:
+    figure = px.line(x=dates, y=data_values, labels={
+                    "x": "Date", "y": option}, height=600, width=1000)
+    st.plotly_chart(figure)
+
+elif option == 'Sky':
+    dates, sky_data = analyzer.get_data()
+    num_columns = 5
+    columns = st.columns(num_columns)
+    for i, sky_condition in enumerate(sky_data):
+        image_path = analyzer.get_image_path(sky_condition)
+        columns[i % num_columns].image(image_path, width=100)
