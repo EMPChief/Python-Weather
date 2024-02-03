@@ -40,21 +40,22 @@ class WeatherAnalyzer:
             return data
 
     def filter_temperature(self, data):
-        return [entry["main"]["temp"] for entry in data]
+        return [entry["dt_txt"] for entry in data], [entry["main"]["temp"] for entry in data]
 
     def filter_pressure(self, data):
-        return [entry["main"]["pressure"] for entry in data]
+        return [entry["dt_txt"] for entry in data], [entry["main"]["pressure"] for entry in data]
 
     def filter_humidity(self, data):
-        return [entry["main"]["humidity"] for entry in data]
+        return [entry["dt_txt"] for entry in data], [entry["main"]["humidity"] for entry in data]
 
     def filter_sky(self, data):
-        return [entry["weather"][0]['main'] for entry in data]
+        return [entry["dt_txt"] for entry in data], [entry["weather"][0]['main'] for entry in data]
 
     def filter_wind(self, data):
-        return [entry["wind"]["speed"] for entry in data]
+        return [entry["dt_txt"] for entry in data], [entry["wind"]["speed"] for entry in data]
 
 
 if __name__ == "__main__":
-    analyzer = WeatherAnalyzer(city_name="bergen", forecast_days=2, option="Wind")
-    print(analyzer.get_data())
+    analyzer = WeatherAnalyzer(city_name="bergen", forecast_days=4, option="Sky")
+    dates, data_values = analyzer.get_data()
+    print(dates, data_values)
