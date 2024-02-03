@@ -6,6 +6,5 @@ Pyarrow
 matplotlib
 streamlit
 plotly
-python-dotenv
 requests
 toml

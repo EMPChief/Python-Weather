@@ -1,8 +1,6 @@
 import os
 import requests
-import dotenv
 import toml
-dotenv.load_dotenv()
 config = toml.load("config.toml")
 API_KEY = config.get("API_KEY")
 
