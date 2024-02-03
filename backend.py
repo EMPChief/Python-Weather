@@ -1,10 +1,10 @@
 import os
 import requests
 import dotenv
-
+import toml
 dotenv.load_dotenv()
-
-API_KEY = os.getenv("API_KEY")
+config = toml.load("config.toml")
+API_KEY = config.get("API_KEY")
 
 
 class WeatherAnalyzer:
