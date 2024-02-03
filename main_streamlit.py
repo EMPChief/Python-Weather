@@ -14,7 +14,7 @@ st.image(logo_path, width=100, output_format="PNG")
 st.markdown("<h1 style='text-align: center; color: #1f4e79;'>Weather Forecast</h1>",
             unsafe_allow_html=True)
 
-city_name = st.text_input("Enter a city name:", "Lurøy")
+city_name = st.text_input("Enter a city name:", "Bergen")
 forecast_days = st.slider("How many days in advance do you want to see the weather forecast?",
                           min_value=1, max_value=5,
                           help="Select the number of forecasted days.")
