@@ -8,6 +8,7 @@
 | ECAD Daily Data        | [Daily Data](https://www.ecad.eu/dailydata/) |
 | ECAD Daily Data Index  | [Daily Data Index](https://www.ecad.eu/dailydata/index.php) |
 | openweathermap         | [Open Weather Map](https://openweathermap.org/) |
+| empweather             | [empweather](https://empweather.streamlit.app/) |
 
 ## License
 
