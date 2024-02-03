@@ -1,11 +1,10 @@
 import streamlit as st
 import plotly.express as px
-
+from backend import get_data
 st.set_page_config(
     page_title="Bjørn-Magne Weather Forecast",
     page_icon="favicon.ico",
 )
-
 logo_path = "bmklogo1.png"
 st.image(logo_path, width=100, output_format="PNG")
 
@@ -17,17 +16,11 @@ forecast_days = st.slider("How many days in advance do you want to see the weath
                           min_value=1, max_value=5,
                           help="Select the number of forecasted days.")
 option = st.selectbox("Select data to view",
-                      ("Temperature", "Humidity", "Wind Speed", "Sky"))
+                      ("Temperature", "Humidity", "Pressure", "Sky", "Wind"))
 
 
-def get_weather_data(days):
-    dates = ["2022-10-25", "2022-11-25", "2022-12-25"]
-    temperatures = [10, 11, 15]
-    temperatures = [days * temp for temp in temperatures]
-    return dates, temperatures
+dates, data_values = get_data(city_name, forecast_days, option)
 
-
-dates, data_values = get_weather_data(forecast_days)
 
 st.markdown(
     f"<h2 style='text-align: center; color: #1f4e79;'>{option} for the next {forecast_days} days in {city_name}:</h2>",
