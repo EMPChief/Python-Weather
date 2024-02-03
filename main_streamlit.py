@@ -7,11 +7,13 @@ st.set_page_config(
     page_title="Bjørn-Magne Weather Forecast",
     page_icon="favicon.ico",
 )
-
-logo_path = "bmklogo1.png"
-st.image(logo_path, width=100, output_format="PNG")
-st.markdown("<h1 style='text-align: center; color: #1f4e79;'>Weather Forecast</h1>",
-            unsafe_allow_html=True)
+col1, col2 = st.columns(2)
+with col1:
+    logo_path = "bmklogo1.png"
+    st.image(logo_path, width=100, output_format="PNG")
+with col2:
+    st.markdown("<h1 style='text-align: center; color: #1f4e79;'>Weather Forecast</h1>",
+                unsafe_allow_html=True)
 
 # WeatherApp class to get weather data and display in Streamlit
 #
