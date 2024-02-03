@@ -11,16 +11,9 @@ col1, col2 = st.columns(2)
 with col1:
     logo_path = "bmklogo1.png"
     st.image(logo_path, width=100, output_format="PNG")
-    st.markdown(
-        "<div style='display: flex; justify-content: center;'>"
-        "<img src='{}' style='width: 100px;'>"
-        "</div>".format(logo_path),
-        unsafe_allow_html=True
-    )
-
 with col2:
-    st.markdown("<h1 style='text-align: center; color: #1f4e79;'>Weather Forecast</h1>", unsafe_allow_html=True)
-
+    st.markdown("<h1 style='text-align: center; color: #1f4e79;'>Weather Forecast</h1>",
+                unsafe_allow_html=True)
 
 # WeatherApp class to get weather data and display in Streamlit
 #
