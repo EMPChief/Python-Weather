@@ -5,6 +5,19 @@ config = toml.load("config.toml")
 API_KEY = config.get("API_KEY")
 
 
+"""
+WeatherAnalyzer class for fetching and filtering weather forecast data from the OpenWeatherMap API.
+
+Can retrieve forecast data for a given city and number of days. Provides methods to filter the 
+data by specific metrics like temperature, pressure, humidity, sky conditions, and wind speed.
+
+The get_data() method handles fetching the raw forecast data from the API. filter_data() applies
+the specified filter. Additional filter_* methods filter by each specific metric.
+
+get_image_path() maps sky conditions to weather image file names.
+"""
+
+
 class WeatherAnalyzer:
     def __init__(self, city_name, forecast_days=1, option=None):
         self.city_name = city_name
@@ -40,7 +53,6 @@ class WeatherAnalyzer:
     def filter_temperature(self, data):
         return [entry["dt_txt"] for entry in data], [entry["main"]["temp"] - 273.15 for entry in data]
 
-
     def filter_pressure(self, data):
         return [entry["dt_txt"] for entry in data], [entry["main"]["pressure"] for entry in data]
 
@@ -61,6 +73,7 @@ class WeatherAnalyzer:
 
 
 if __name__ == "__main__":
-    analyzer = WeatherAnalyzer(city_name="bergen", forecast_days=4, option="Sky")
+    analyzer = WeatherAnalyzer(
+        city_name="bergen", forecast_days=4, option="Sky")
     dates, data_values = analyzer.get_data()
     print(dates, data_values)

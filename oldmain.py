@@ -1,6 +1,15 @@
 from flask import Flask, render_template, request, jsonify
 import json
 
+"""
+WeatherAPP class that initializes a Flask app, loads weather and dictionary data, 
+defines routes and runs the Flask app.
+
+Provides a REST API for retrieving weather data by station and date, and dictionary
+definitions by word. Renders an index page.
+"""
+
+
 class WeatherAPP:
     def __init__(self):
         self.app = Flask('WeatherAPP')
@@ -22,7 +31,7 @@ class WeatherAPP:
         @self.app.route('/')
         def index():
             return render_template('index.html')
-        
+
         @self.app.route("/api/dic/<word>")
         def get_dictionary(word):
             result = {
@@ -37,13 +46,14 @@ class WeatherAPP:
         @self.app.route("/api/weather/<station>/<date>")
         def get_weather(station, date):
             result = {
-                "error":"Data not found!"
+                "error": "Data not found!"
             }
             for entry in self.weather_data.get("weatherData", []):
                 if entry.get("station") == station and entry["date"] == date:
                     result = entry
                     break
             return jsonify(result)
+
 
 if __name__ == '__main__':
     weather_app = WeatherAPP()

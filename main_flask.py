@@ -1,7 +1,20 @@
 from flask import Flask, render_template, request, jsonify
 import csv
-import json  # Import the json module
+import json
 import pandas as pd
+
+
+"""
+WeatherAPP class that initializes a Flask app, loads weather data, 
+defines routes and runs the Flask app.
+
+Provides routes for:
+- Home page with list of stations
+- Dictionary API 
+- Current weather data API
+- Historical weather data API
+- Annual weather data API
+"""
 
 
 class WeatherAPP:
