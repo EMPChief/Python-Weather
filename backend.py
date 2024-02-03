@@ -38,7 +38,8 @@ class WeatherAnalyzer:
             return data
 
     def filter_temperature(self, data):
-        return [entry["dt_txt"] for entry in data], [entry["main"]["temp"] for entry in data]
+        return [entry["dt_txt"] for entry in data], [entry["main"]["temp"] - 273.15 for entry in data]
+
 
     def filter_pressure(self, data):
         return [entry["dt_txt"] for entry in data], [entry["main"]["pressure"] for entry in data]

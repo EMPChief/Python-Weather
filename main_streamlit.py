@@ -1,6 +1,7 @@
 import streamlit as st
 import plotly.express as px
 from backend import WeatherAnalyzer
+import requests
 
 st.set_page_config(
     page_title="Bjørn-Magne Weather Forecast",
@@ -20,23 +21,31 @@ forecast_days = st.slider("How many days in advance do you want to see the weath
 option = st.selectbox("Select data to view",
                       ("Temperature", "Humidity", "Pressure", "Sky", "Wind"))
 
-analyzer = WeatherAnalyzer(city_name, forecast_days, option)
-dates, data_values = analyzer.get_data()
+try:
+    analyzer = WeatherAnalyzer(city_name, forecast_days, option)
+    dates, data_values = analyzer.get_data()
 
-st.markdown(
-    f"<h2 style='text-align: center; color: #1f4e79;'>{option} for the next {forecast_days} days in {city_name}:</h2>",
-    unsafe_allow_html=True
-)
+    st.markdown(
+        f"<h2 style='text-align: center; color: #1f4e79;'>{option} for the next {forecast_days} days in {city_name}:</h2>",
+        unsafe_allow_html=True
+    )
 
-if option in ['Temperature', 'Humidity', 'Pressure', 'Wind']:
-    figure = px.line(x=dates, y=data_values, labels={
-                    "x": "Date", "y": option}, height=400, width=600)
-    st.plotly_chart(figure)
+    if option in ['Temperature', 'Humidity', 'Pressure', 'Wind']:
+        figure = px.line(x=dates, y=data_values, labels={
+                        "x": "Date", "y": option}, height=400, width=600)
+        st.plotly_chart(figure)
 
-elif option == 'Sky':
-    dates, sky_data = analyzer.get_data()
-    num_columns = 5
-    columns = st.columns(num_columns)
-    for i, sky_condition in enumerate(sky_data):
-        image_path = analyzer.get_image_path(sky_condition)
-        columns[i % num_columns].image(image_path, width=100)
+    elif option == 'Sky':
+        dates, sky_data = analyzer.get_data()
+        num_columns = 5
+        columns = st.columns(num_columns)
+        for i, sky_condition in enumerate(sky_data):
+            image_path = analyzer.get_image_path(sky_condition)
+            columns[i % num_columns].image(image_path, width=100)
+
+except requests.exceptions.RequestException as e:
+    st.error(f"Error fetching weather data: {str(e)}")
+except KeyError as e:
+    st.error(f"A city by this name does not exist: {str(e)}")
+except Exception as e:
+    st.error(f"An error occurred: {str(e)}")
